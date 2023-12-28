@@ -15,7 +15,9 @@ public abstract class Day {
 
   public abstract int getDayNumber();
 
-  public abstract DaySolutionDto getDaySolution();
+  public DaySolutionDto getDaySolution() {
+    return new DaySolutionDto(getDayNumber(), getDayStatus(getFirstPartSolution(), getSecondPartSolution()));
+  }
 
   public static PuzzleStatusEnum getDayStatus(DaySolutionDto firstPartSolution, DaySolutionDto secondPartSolution) {
     if (isPartSolved(firstPartSolution) && isPartSolved(secondPartSolution)) {
