@@ -3,7 +3,7 @@ package com.georgeboghez.aoc.service;
 import com.georgeboghez.aoc.days.Day;
 import com.georgeboghez.aoc.enums.Part;
 import com.georgeboghez.aoc.enums.PuzzleStatusEnum;
-import com.georgeboghez.aoc.exception.PuzzleUnsolvedException;
+import com.georgeboghez.aoc.exceptions.PuzzleUnsolvedException;
 
 import org.springframework.stereotype.Service;
 

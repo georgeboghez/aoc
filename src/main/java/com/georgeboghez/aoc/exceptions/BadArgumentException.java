@@ -1,4 +1,4 @@
-package com.georgeboghez.aoc.exception;
+package com.georgeboghez.aoc.exceptions;
 
 public class BadArgumentException extends RuntimeException {
 

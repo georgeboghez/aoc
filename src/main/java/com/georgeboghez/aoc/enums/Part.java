@@ -1,6 +1,6 @@
 package com.georgeboghez.aoc.enums;
 
-import com.georgeboghez.aoc.exception.BadArgumentException;
+import com.georgeboghez.aoc.exceptions.BadArgumentException;
 
 import lombok.Getter;
 

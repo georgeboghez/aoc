@@ -1,4 +1,4 @@
-package com.georgeboghez.aoc.exception;
+package com.georgeboghez.aoc.exceptions;
 
 import com.georgeboghez.aoc.enums.Part;
 import com.georgeboghez.aoc.enums.PuzzleStatusEnum;

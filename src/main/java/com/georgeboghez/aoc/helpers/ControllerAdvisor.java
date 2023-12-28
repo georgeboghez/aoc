@@ -1,7 +1,7 @@
 package com.georgeboghez.aoc.helpers;
 
-import com.georgeboghez.aoc.exception.BadArgumentException;
-import com.georgeboghez.aoc.exception.PuzzleUnsolvedException;
+import com.georgeboghez.aoc.exceptions.BadArgumentException;
+import com.georgeboghez.aoc.exceptions.PuzzleUnsolvedException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
