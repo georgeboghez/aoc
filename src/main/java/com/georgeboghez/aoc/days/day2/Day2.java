@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Day2 extends Day {
   @Override
   public DaySolutionDto solveFirstPart() {
-    String inputFilePath = "src/main/java/com/georgeboghez/aoc/days/day1/input.txt";
+    String inputFilePath = "src/main/java/com/georgeboghez/aoc/days/day2/input.txt";
     GameSolver digitsFinder = new GameSolverImpl();
     long sum = 0L;
     try (BufferedReader br = new BufferedReader(new FileReader(inputFilePath))) {
