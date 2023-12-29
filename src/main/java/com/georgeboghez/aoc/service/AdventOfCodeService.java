@@ -2,6 +2,7 @@ package com.georgeboghez.aoc.service;
 
 import com.georgeboghez.aoc.days.Day;
 import com.georgeboghez.aoc.days.day1.Day1;
+import com.georgeboghez.aoc.days.day2.Day2;
 import com.georgeboghez.aoc.dto.DaySolutionDto;
 import com.georgeboghez.aoc.enums.Part;
 import com.georgeboghez.aoc.enums.PuzzleStatusEnum;
@@ -19,7 +20,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class AdventOfCodeService {
 
-  private final List<Day> days = List.of(new Day1());
+  private final List<Day> days = List.of(new Day1(), new Day2());
 
   public DaySolutionDto solvePuzzleForASpecificDayAndPart(int dayNumber, Part part) {
     Day day = findSolutionForDay(dayNumber, part);
