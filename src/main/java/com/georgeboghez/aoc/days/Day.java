@@ -9,17 +9,17 @@ public abstract class Day {
   public static final int MAX_ADVENT_OF_CODE_DAY = 25;
 
 
-  public abstract DaySolutionDto getFirstPartSolution();
+  public abstract DaySolutionDto solveFirstPart();
 
-  public abstract DaySolutionDto getSecondPartSolution();
+  public abstract DaySolutionDto solveSecondPart();
 
   public abstract int getDayNumber();
 
-  public DaySolutionDto getDaySolution() {
-    return new DaySolutionDto(getDayNumber(), getDayStatus(getFirstPartSolution(), getSecondPartSolution()));
+  public DaySolutionDto solveBothParts() {
+    return new DaySolutionDto(getDayNumber(), computeDayStatus(solveFirstPart(), solveSecondPart()));
   }
 
-  public static PuzzleStatusEnum getDayStatus(DaySolutionDto firstPartSolution, DaySolutionDto secondPartSolution) {
+  public static PuzzleStatusEnum computeDayStatus(DaySolutionDto firstPartSolution, DaySolutionDto secondPartSolution) {
     if (isPartSolved(firstPartSolution) && isPartSolved(secondPartSolution)) {
       return PuzzleStatusEnum.SOLVED;
     }
@@ -41,9 +41,9 @@ public abstract class Day {
 
   public boolean isPuzzleSolvedForPart(Part part) {
     return switch (part) {
-      case FIRST -> isPartSolved(getFirstPartSolution());
-      case SECOND -> isPartSolved(getSecondPartSolution());
-      case BOTH -> isPartSolved(getDaySolution());
+      case FIRST -> isPartSolved(solveFirstPart());
+      case SECOND -> isPartSolved(solveSecondPart());
+      case BOTH -> isPartSolved(solveBothParts());
     };
   }
 }

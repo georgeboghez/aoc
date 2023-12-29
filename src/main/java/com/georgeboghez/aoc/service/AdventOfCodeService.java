@@ -1,6 +1,7 @@
 package com.georgeboghez.aoc.service;
 
 import com.georgeboghez.aoc.days.Day;
+import com.georgeboghez.aoc.days.day1.Day1;
 import com.georgeboghez.aoc.dto.DaySolutionDto;
 import com.georgeboghez.aoc.enums.Part;
 import com.georgeboghez.aoc.enums.PuzzleStatusEnum;
@@ -18,18 +19,18 @@ import lombok.Getter;
 @AllArgsConstructor
 public class AdventOfCodeService {
 
-  private final List<Day> days = List.of();
+  private final List<Day> days = List.of(new Day1());
 
-  public DaySolutionDto getResultsForASpecificDayAndPuzzlePart(int dayNumber, Part part) {
+  public DaySolutionDto solvePuzzleForASpecificDayAndPart(int dayNumber, Part part) {
     Day day = findSolutionForDay(dayNumber, part);
     if (!day.isPuzzleSolvedForPart(part)) {
       throw new PuzzleUnsolvedException(dayNumber, part, PuzzleStatusEnum.UNSOLVED);
     }
 
     return switch (part) {
-      case FIRST -> day.getFirstPartSolution();
-      case SECOND -> day.getSecondPartSolution();
-      case BOTH -> day.getDaySolution();
+      case FIRST -> day.solveFirstPart();
+      case SECOND -> day.solveSecondPart();
+      case BOTH -> day.solveBothParts();
     };
   }
 

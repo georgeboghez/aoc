@@ -5,10 +5,14 @@ import com.georgeboghez.aoc.enums.PuzzleStatusEnum;
 
 public class PuzzleUnsolvedException extends RuntimeException {
   public PuzzleUnsolvedException(int day, Part part, PuzzleStatusEnum status) {
-    super("The puzzle for day " + day + " " + getPartMessage(part) + " has status: " + status.name());
+    super("The puzzle for day " + day + " " + buildPartMessage(part) + " has status: " + status.name());
   }
 
-  private static String getPartMessage(Part part) {
+  public PuzzleUnsolvedException(int day, Part part, PuzzleStatusEnum status, String message) {
+    super("The puzzle for day " + day + " " + buildPartMessage(part) + " has status: " + status.name() + " (due to error - " + message + ")");
+  }
+
+  private static String buildPartMessage(Part part) {
     return switch (part) {
       case FIRST -> "part 1";
       case SECOND -> "part 2";

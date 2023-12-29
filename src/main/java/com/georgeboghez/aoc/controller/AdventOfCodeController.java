@@ -26,17 +26,17 @@ public class AdventOfCodeController {
   private final AdventOfCodeService adventOfCodeService;
 
   @GetMapping
-  public DaySolutionDto getResultForASpecificDayAndPuzzlePart(@RequestParam(value = "day", defaultValue = "1") int day, @RequestParam(value = "part", defaultValue = "BOTH") String partValue) {
+  public DaySolutionDto solvePuzzleForASpecificDayAndPart(@RequestParam(value = "day", defaultValue = "1") int day, @RequestParam(value = "part", defaultValue = "BOTH") String partValue) {
     Part part = Part.fromValue(partValue);
     log.info("The results for day {}, part {} have been requested.", day, part.getValue());
-    return adventOfCodeService.getResultsForASpecificDayAndPuzzlePart(day, part);
+    return adventOfCodeService.solvePuzzleForASpecificDayAndPart(day, part);
   }
 
   @GetMapping("/days-implemented")
   public List<DaySolutionDto> daysImplemented() {
     log.info("The list of implemented days has been requested.");
     return adventOfCodeService.getDays().stream()
-        .map(Day::getDaySolution)
+        .map(Day::solveBothParts)
         .sorted(Comparator.comparing(DaySolutionDto::getDay))
         .toList();
   }
